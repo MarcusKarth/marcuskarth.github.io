@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
     <title>marcuskarth</title>
 </head>
 <style>
@@ -28,6 +31,11 @@
 </style>
 
 <body>
+
+    <button id="next" onclick="swapImage();">next</button>
+
+
+
     <audio autoplay loop>
         <source src="dreams.mp3" type="audio/mpeg">
     </audio>
@@ -45,17 +53,34 @@
 
     <script>
 
+        scr = "app.js" >
+        
+        var images = [
+            "1.png",
+            "2.png",
+            "3.jpg",
+            "4.jpg",
+            "5.png",
+            "6.png",
+            "7.png",
+        ];
+        var nextImage = 1;
 
-        function show_image(src, width, height, alt) {
-            var img = document.createElement("img");
-            img.src = src;
-            img.width = width;
-            img.height = width;
-            img.alt = alt;
-
-            document.body.appendChild(img);
-            // copy pasted code here  ^^^^^^
+        function setImg(id, val) {
+            var pic = document.getElementById(id);
+            pic.src = "./" + val;
         }
+
+        function swapImage() {
+            if (nextImage == images.length) {
+                nextImage = 0;
+                setImg("pic1", images[nextImage]);
+            } else {
+                setImg("pic1", images[nextImage]);
+            }
+            nextImage++;
+        }
+
 
 
     </script>
